@@ -1,0 +1,46 @@
+<div class="filter-item" (mouseover)="showActions = true" (mouseleave)="showActions = false">
+    <div>
+        <div class="step-label">{{ index + 1 }}. Step: {{ filter.eventName ?? "Unnamed step" }}</div>
+        <div class="content">
+            <nb-select
+                placeholder="Select an event"
+                selected="{{ filter.eventName }}"
+                size="small"
+                (selectedChange)="onSelectEvent($event)"
+            >
+                <nb-option
+                    *ngFor="let event of events"
+                    value="{{ event.type }}"
+                >
+                    {{ event.type }}
+                </nb-option>
+            </nb-select>
+            <div *ngIf="filter.eventName && filter.eventAttributes.length === 0">
+                <div
+                    class="add-attribute-button"
+                    (click)="onAddAttribute()"
+                >
+                    + Add an event attribute
+                </div>
+            </div>
+            <div *ngIf="filter.eventName && filter.eventAttributes.length !== 0">
+                <app-event-attribute-list
+                    class="attribute-list"
+                    [attributes]="filter.eventAttributes"
+                    [properties]="getProperties()"
+                    (onChangeAttributes)="onChangeAttributes($event)"
+                ></app-event-attribute-list>
+                <div
+                    class="add-attribute-button"
+                    (click)="onAddAttribute()"
+                >
+                    Refine more
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="actions" *ngIf="showActions">
+        <nb-icon icon="trash-2-outline" (click)="onDelete()"></nb-icon>
+        <nb-icon icon="copy-outline" (click)="onDuplicate()"></nb-icon>
+    </div>
+</div>

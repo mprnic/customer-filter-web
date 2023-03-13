@@ -1,0 +1,30 @@
+<div class="attribute" (mouseover)="showDelete = true" (mouseleave)="showDelete = false">
+    <nb-select
+        placeholder="Select an attribute"
+        selected="{{ attribute.name }}"
+        size="small"
+        (selectedChange)="onSelectName($event)"
+    >
+        <nb-option
+            *ngFor="let property of properties"
+            value="{{ property.property }}"
+        >
+            {{ property.property }}
+        </nb-option>
+    </nb-select>
+    <nb-select
+        *ngIf="attribute.name"
+        selected="{{ attribute.operator }}"
+        size="small"
+        (selectedChange)="onSelectOperator($event)"
+    >
+        <nb-option
+            *ngFor="let operator of operators"
+            value="{{ operator }}"
+        >
+            {{ operator }}
+        </nb-option>
+    </nb-select>
+    <input *ngIf="attribute.name" type="text" nbInput fieldSize="small" />
+    <nb-icon *ngIf="showDelete" icon="close-outline" class="delete-icon" (click)="onDelete()"></nb-icon>
+</div>

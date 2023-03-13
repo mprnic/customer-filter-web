@@ -1,0 +1,40 @@
+.filter-item {
+    display: flex;
+    justify-content: space-between;
+
+    .step-label {
+        margin-bottom: 10px;
+        font-size: small;
+    }
+
+    .content {
+        display: flex;
+        gap: 10px;
+
+        .add-attribute-button {
+            font-size: x-small;
+            font-weight: bold;
+            color: var(--color-add-button);
+            margin-top: 6px;
+            cursor: pointer;
+        }
+
+        .attribute-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+    .actions {
+        display: flex;
+        gap: 10px;
+        opacity: 50%;
+        cursor: pointer;
+
+        nb-icon {
+            padding: 0.1rem;
+            margin: 0.1rem;
+        }
+    }
+}

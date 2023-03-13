@@ -1,0 +1,23 @@
+<app-header (onDeleteAllFilters)="onDeleteAllFilters()"></app-header>
+<nb-card>
+    <nb-card-body>
+        <nb-list>
+            <nb-list-item *ngFor="let filter of filters$ | async; index as i">
+                <app-filter-item
+                    class="item"
+                    [index]="i"
+                    [filter]="filter"
+                    [events$]="events$"
+                    (onSelectEventType)="onSelectEventType($event, filter, i)"
+                    (onChangeEventAttributes)="onChangeAttributes($event, filter, i)"
+                    (onDuplicateFilter)="onDuplicateFilter(filter)"
+                    (onDeleteFilter)="onDeleteFilter(i)"
+                ></app-filter-item>
+            </nb-list-item>
+        </nb-list>
+    </nb-card-body>
+    <nb-card-footer>
+        <div class="add-step-button" (click)="onAddFilter()">+ ADD FUNNEL STEP</div>
+    </nb-card-footer>
+</nb-card>
+<app-footer (onApplyFilters)="onApplyFilters()"></app-footer>

@@ -1,0 +1,17 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+
+    .title {
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    .delete-all-filters-button {
+        font-size: smaller;
+        font-weight: bold;
+        color: crimson;
+        opacity: 0.8;
+        cursor: pointer;
+    }
+}

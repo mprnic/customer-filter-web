@@ -1,0 +1,9 @@
+<div *ngFor="let attr of attributes; index as i">
+    <app-event-attribute-item
+        [attribute]="attr"
+        [properties]="properties"
+        (onChangeAttribute)="onChangeAttribute($event, i)"
+        (onDeleteAttribute)="onDeleteAttribute(i)"
+    ></app-event-attribute-item>
+</div>
+

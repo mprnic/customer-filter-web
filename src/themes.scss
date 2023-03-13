@@ -1,0 +1,18 @@
+@forward '@nebular/theme/styles/theming';
+@use '@nebular/theme/styles/theming' as *;
+@use '@nebular/theme/styles/themes/default';
+
+$nb-themes: nb-register-theme((
+
+  select-min-width: 10rem,
+  button-filled-warning-text-color: black,
+  color-warning-default: var(--color-warning-400),
+  color-add-button: #23b4d8,
+  button-filled-text-transform: none,
+  select-small-placeholder-text-font-size: 12px,
+  option-small-text-font-weight: 400,
+  select-outline-small-padding: 2px 12px,
+  card-padding: 24px 20px 16px,
+  list-item-padding: 16px 0
+
+), default, default);
